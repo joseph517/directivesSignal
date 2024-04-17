@@ -15,7 +15,7 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
     PropertiesPageComponent,
     CounterPageComponent,
     SignalLayoutComponent,
-    SideMenuComponent
+    SideMenuComponent,
   ],
   imports: [
     CommonModule,
