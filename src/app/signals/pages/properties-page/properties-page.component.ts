@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
+import { User } from '../../interfaces/user-request.interface';
 
 @Component({
   // selector: 'signals-properties-page',
@@ -7,4 +8,22 @@ import { Component } from '@angular/core';
 })
 export class PropertiesPageComponent {
 
+  public user = signal<User>({
+    id: 1,
+    email: 'a@a.com',
+    first_name: 'John',
+    last_name: 'Does',
+    avatar: 'https://reqres.in/img/faces/1-image.jpg'
+  })
+
+public fullName = computed(  () =>`${this.user().first_name} ${this.user().last_name}` )
+
+  onFieldUpdate( field: keyof User, value: string ){
+
+    this.user.set( {
+      ...this.user(),
+      [field]: value
+    })
+
+  }
 }
