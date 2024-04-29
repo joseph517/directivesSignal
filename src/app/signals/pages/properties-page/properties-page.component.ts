@@ -26,10 +26,12 @@ public userChangedEffect = effect( () => {
 
   ngOnInit(): void {
     // setInterval( () => {
-    //   this.counter.update( current => current + 1 )
+    //   console.log(this.counter.update( current => current + 1 ))
     // }, 1000 )
   }
   ngOnDestroy(): void {
+
+    console.log('ngOnDestroy')
 
     this.userChangedEffect.destroy()
     
@@ -41,7 +43,7 @@ public userChangedEffect = effect( () => {
 
   onFieldUpdate( field: keyof User, value: string ){
     this.user.update( current => {
-      let updatedUser = {...current}; // Crear una copia del usuario actual
+      let updatedUser = {...current};
       switch ( field ) {
         case 'email':
           updatedUser.email = value;
@@ -59,7 +61,7 @@ public userChangedEffect = effect( () => {
           updatedUser.id = Number( value );
           break;
       }
-      return updatedUser; // Devolver el nuevo objeto actualizado
+      return updatedUser; 
     })
   }
 }

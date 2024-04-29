@@ -26,7 +26,6 @@ export class UserInfoPageComponent implements OnInit {
   }
 
   loadUser( id: number) {
-    if( id <= 0 ) return
 
     this.userId.set( id )
     this.currentUser.set(undefined)
